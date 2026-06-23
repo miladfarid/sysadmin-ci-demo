@@ -56,3 +56,27 @@ In einem Team arbeiten mehrere Entwickler gleichzeitig an verschiedenen Features
 - Änderung in `config/webserver.conf` vorgenommen
 - Pull Request auf `main` geöffnet
 - Workflow wurde automatisch gestartet und war ✅ erfolgreich
+
+## Erweiterungsaufgabe 2: Zweiten Job einbauen
+
+### Was wurde gemacht?
+
+Dem Workflow wurde ein zweiter Job (`deploy-notification`) hinzugefügt, der **nur nach erfolgreicher Konfigurationsprüfung** läuft.
+
+### Wie funktioniert die Verknüpfung?
+
+- **`needs: validate-config`**: Sagt GitHub Actions, dass dieser Job erst nach `validate-config` starten darf
+- **`if: success()`**: Sagt GitHub Actions, dass dieser Job nur läuft, wenn der vorherige Job erfolgreich war
+
+### Warum ist das sinnvoll?
+
+In einem echten CI/CD-Szenario könnte der zweite Job:
+- Die Konfiguration auf einen Test-Server deployen
+- Eine E-Mail-Benachrichtigung an das Team senden
+- Einen Produktions-Deployment starten
+- Einen Slack- oder Teams-Webhook aufrufen
+
+**Getestet am 26.06.2026:**
+- Beide Jobs wurden erfolgreich ausgeführt
+- Der zweite Job wurde nur nach erfolgreichem ersten Job gestartet
+- Die Abhängigkeit zwischen den Jobs funktioniert wie erwartet
