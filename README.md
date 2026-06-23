@@ -1,7 +1,10 @@
 # sysadmin-ci-demo
 
 „Ich möchte vor jeder Bereitstellung automatisch prüfen, ob Änderungen an der Webserver-Konfigurationsdatei vorgenommen wurden, um menschliche Fehler zu vermeiden.“
+
 „Ziel ist es, die Konfigurationsvalidierung mithilfe von CI/CD zu einem obligatorischen und automatisierten Schritt im Entwicklungsprozess zu machen.“
+
+---
 
 ## CI/CD in diesem Repository
 
@@ -26,6 +29,8 @@ Bei jeder Änderung an der `config/webserver.conf` müsste ich ohne CI/CD diese 
 2. **Klare Commit-Nachrichten**: Jede Commit-Nachricht beschreibt genau, was geändert wurde
 3. **Schnelle Prüfungen**: Das Skript läuft in wenigen Sekunden durch und gibt sofort Feedback
 
+---
+
 ## Testergebnisse
 
 ### Erfolgreicher Run (26.06.2026)
@@ -39,6 +44,8 @@ Bei jeder Änderung an der `config/webserver.conf` müsste ich ohne CI/CD diese 
 - **Ergebnis**: ❌ Fehlgeschlagen
 - **Betroffener Step**: `config/webserver.conf prüfen`
 - **Korrektur**: Die Konfigurationsdatei wurde wieder mit gültigem Inhalt gefüllt und der Workflow lief anschließend erfolgreich durch.
+
+---
 
 ## Erweiterungsaufgabe 1: Pull-Request-Trigger
 
@@ -56,6 +63,8 @@ In einem Team arbeiten mehrere Entwickler gleichzeitig an verschiedenen Features
 - Änderung in `config/webserver.conf` vorgenommen
 - Pull Request auf `main` geöffnet
 - Workflow wurde automatisch gestartet und war ✅ erfolgreich
+
+---
 
 ## Erweiterungsaufgabe 2: Zweiten Job einbauen
 
@@ -81,6 +90,7 @@ In einem echten CI/CD-Szenario könnte der zweite Job:
 - Der zweite Job wurde nur nach erfolgreichem ersten Job gestartet
 - Die Abhängigkeit zwischen den Jobs funktioniert wie erwartet
 
+---
 
 ## Erweiterungsaufgabe 3: Prüfung erweitert
 
@@ -109,6 +119,8 @@ Das Skript `scripts/check-config.sh` wurde um folgende Prüfungen erweitert:
 - Prüfung auf doppelte Zeilen
 - Validierung von Pfaden (z.B. `/var/www/html` muss existieren)
 - Prüfung von Berechtigungen (z.B. `chmod` der Datei)
+
+---
 
 ## Reflexionsfragen
 
