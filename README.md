@@ -25,3 +25,17 @@ Bei jeder Änderung an der `config/webserver.conf` müsste ich ohne CI/CD diese 
 1. **Kleine Änderungen**: Ich committe nur kleine, logische Änderungen
 2. **Klare Commit-Nachrichten**: Jede Commit-Nachricht beschreibt genau, was geändert wurde
 3. **Schnelle Prüfungen**: Das Skript läuft in wenigen Sekunden durch und gibt sofort Feedback
+
+## Testergebnisse
+
+### Erfolgreicher Run (26.06.2026)
+- **Auslöser**: `push` auf `main` nach Hinzufügen eines Kommentars
+- **Ergebnis**: ✅ Erfolgreich
+- **Betroffene Steps**: Alle Steps erfolgreich durchgelaufen
+- **Notiz**: Die Konfiguration war gültig, daher hat der Workflow grün geliefert.
+
+### Fehlgeschlagener Run (26.06.2026)
+- **Auslöser**: `push` auf `main` nach dem Leeren der Konfigurationsdatei
+- **Ergebnis**: ❌ Fehlgeschlagen
+- **Betroffener Step**: `config/webserver.conf prüfen`
+- **Korrektur**: Die Konfigurationsdatei wurde wieder mit gültigem Inhalt gefüllt und der Workflow lief anschließend erfolgreich durch.
