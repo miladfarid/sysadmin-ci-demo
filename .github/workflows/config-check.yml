@@ -27,3 +27,15 @@ jobs:
       
       - name: config/webserver.conf prüfen
         run: ./scripts/check-config.sh
+
+  deploy-notification:
+    runs-on: ubuntu-latest
+    needs: validate-config
+    if: success()
+    
+    steps:
+      - name: Erfolgsmeldung ausgeben
+        run: |
+          echo "✅ Die Konfigurationsprüfung war erfolgreich!"
+          echo "🚀 CD-Schritt könnte jetzt starten (z.B. Deployment auf Webserver)"
+          echo "📦 Nächster Schritt: Konfiguration auf Produktionsserver übertragen"
