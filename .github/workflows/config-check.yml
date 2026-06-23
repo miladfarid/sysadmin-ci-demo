@@ -1,0 +1,27 @@
+name: Config-Datei prüfen
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  validate-config:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v3
+      
+      - name: Dateiliste anzeigen
+        run: |
+          echo "📁 Verzeichnisstruktur:"
+          ls -la
+          echo "📄 config/ Verzeichnis:"
+          ls -la config/ || echo "config/ existiert nicht"
+      
+      - name: Skript ausführbar machen
+        run: chmod +x scripts/check-config.sh
+      
+      - name: config/webserver.conf prüfen
+        run: ./scripts/check-config.sh
