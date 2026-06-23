@@ -39,3 +39,20 @@ Bei jeder Änderung an der `config/webserver.conf` müsste ich ohne CI/CD diese 
 - **Ergebnis**: ❌ Fehlgeschlagen
 - **Betroffener Step**: `config/webserver.conf prüfen`
 - **Korrektur**: Die Konfigurationsdatei wurde wieder mit gültigem Inhalt gefüllt und der Workflow lief anschließend erfolgreich durch.
+
+## Erweiterungsaufgabe 1: Pull-Request-Trigger
+
+### Warum ist ein `pull_request`-Trigger in einem Team sinnvoll?
+
+In einem Team arbeiten mehrere Entwickler gleichzeitig an verschiedenen Features. Wenn jemand eine Änderung vorschlägt (über einen Pull Request), muss sichergestellt sein, dass diese Änderung nichts kaputt macht.
+
+**Vorteile des Pull-Request-Triggers:**
+1. **Automatische Prüfung vor dem Merge**: Jeder Pull Request wird automatisch geprüft, bevor er in `main` gemergt wird
+2. **Qualitätssicherung**: Fehler werden entdeckt, bevor sie in den Hauptbranch gelangen
+3. **Code-Review**: Zusammen mit dem Code-Review gibt es zusätzliche Sicherheit durch automatisierte Tests
+
+**Getestet am 26.06.2026:**
+- Branch `feature/update-config` erstellt
+- Änderung in `config/webserver.conf` vorgenommen
+- Pull Request auf `main` geöffnet
+- Workflow wurde automatisch gestartet und war ✅ erfolgreich
