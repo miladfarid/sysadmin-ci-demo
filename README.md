@@ -109,3 +109,20 @@ Das Skript `scripts/check-config.sh` wurde um folgende Prüfungen erweitert:
 - Prüfung auf doppelte Zeilen
 - Validierung von Pfaden (z.B. `/var/www/html` muss existieren)
 - Prüfung von Berechtigungen (z.B. `chmod` der Datei)
+
+## Reflexionsfragen
+
+### 1. Welche manuellen Prüfungen wurden automatisiert?
+Ich habe die Prüfung auf Existenz, Inhalt, Schlüsselwörter und Platzhalter automatisiert. Alle diese Schritte muss ich jetzt nicht mehr manuell machen.
+
+### 2. Welcher Trigger ist am besten?
+Für mein Szenario ist `push` am besten, weil ich sofort nach jedem Commit Feedback bekomme. Für Teams ist `pull_request` auch sehr wichtig.
+
+### 3. Was ist CI und wo beginnt CD?
+CI ist die automatische Prüfung der Konfiguration. CD würde mit dem automatischen Deployment auf einen echten Server beginnen.
+
+### 4. Wichtigste Best Practice
+Kleine, nachvollziehbare Änderungen mit klaren Commit-Nachrichten waren für mich am wichtigsten.
+
+### 5. Nächste Automatisierungsschritte
+Als Nächstes würde ich den echten Deploy auf einen Server automatisieren, gefolgt von Tests nach dem Deploy und automatischen Benachrichtigungen.
