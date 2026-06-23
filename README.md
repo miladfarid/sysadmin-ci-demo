@@ -80,3 +80,32 @@ In einem echten CI/CD-Szenario könnte der zweite Job:
 - Beide Jobs wurden erfolgreich ausgeführt
 - Der zweite Job wurde nur nach erfolgreichem ersten Job gestartet
 - Die Abhängigkeit zwischen den Jobs funktioniert wie erwartet
+
+
+## Erweiterungsaufgabe 3: Prüfung erweitert
+
+### Was wurde erweitert?
+
+Das Skript `scripts/check-config.sh` wurde um folgende Prüfungen erweitert:
+
+1. **Platzhalter-Check**: Die Datei wird auf `TODO` und `FIXME` untersucht. Wenn solche Platzhalter gefunden werden, schlägt die Prüfung fehl.
+2. **Backup-Check**: Eine optionale Backup-Datei (`config/backup.conf`) wird auf Existenz und Inhalt geprüft.
+
+### Warum ist das sinnvoll?
+
+- **Platzhalter-Check**: Verhindert, dass unvollständige Konfigurationen deployt werden
+- **Backup-Check**: Stellt sicher, dass im Notfall eine Backup-Konfiguration verfügbar ist
+
+### Getestet am 26.06.2026
+
+| Testfall | Ergebnis |
+| :--- | :--- |
+| Konfiguration ohne TODO/FIXME | ✅ Erfolg |
+| Konfiguration mit TODO | ❌ Fehler (Platzhalter gefunden) |
+| Konfiguration mit Backup-Datei | ℹ️ Info (Backup gefunden) |
+
+### Nächste mögliche Erweiterungen
+
+- Prüfung auf doppelte Zeilen
+- Validierung von Pfaden (z.B. `/var/www/html` muss existieren)
+- Prüfung von Berechtigungen (z.B. `chmod` der Datei)
