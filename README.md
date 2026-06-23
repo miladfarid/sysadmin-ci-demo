@@ -33,13 +33,13 @@ Bei jeder Änderung an der `config/webserver.conf` müsste ich ohne CI/CD diese 
 
 ## Testergebnisse
 
-### Erfolgreicher Run (26.06.2026)
+### Erfolgreicher Run (23.06.2026)
 - **Auslöser**: `push` auf `main` nach Hinzufügen eines Kommentars
 - **Ergebnis**: ✅ Erfolgreich
 - **Betroffene Steps**: Alle Steps erfolgreich durchgelaufen
 - **Notiz**: Die Konfiguration war gültig, daher hat der Workflow grün geliefert.
 
-### Fehlgeschlagener Run (26.06.2026)
+### Fehlgeschlagener Run (23.06.2026)
 - **Auslöser**: `push` auf `main` nach dem Leeren der Konfigurationsdatei
 - **Ergebnis**: ❌ Fehlgeschlagen
 - **Betroffener Step**: `config/webserver.conf prüfen`
@@ -58,7 +58,7 @@ In einem Team arbeiten mehrere Entwickler gleichzeitig an verschiedenen Features
 2. **Qualitätssicherung**: Fehler werden entdeckt, bevor sie in den Hauptbranch gelangen
 3. **Code-Review**: Zusammen mit dem Code-Review gibt es zusätzliche Sicherheit durch automatisierte Tests
 
-**Getestet am 26.06.2026:**
+**Getestet am 23.06.2026:**
 - Branch `feature/update-config` erstellt
 - Änderung in `config/webserver.conf` vorgenommen
 - Pull Request auf `main` geöffnet
@@ -85,7 +85,7 @@ In einem echten CI/CD-Szenario könnte der zweite Job:
 - Einen Produktions-Deployment starten
 - Einen Slack- oder Teams-Webhook aufrufen
 
-**Getestet am 26.06.2026:**
+**Getestet am 23.06.2026:**
 - Beide Jobs wurden erfolgreich ausgeführt
 - Der zweite Job wurde nur nach erfolgreichem ersten Job gestartet
 - Die Abhängigkeit zwischen den Jobs funktioniert wie erwartet
@@ -106,7 +106,7 @@ Das Skript `scripts/check-config.sh` wurde um folgende Prüfungen erweitert:
 - **Platzhalter-Check**: Verhindert, dass unvollständige Konfigurationen deployt werden
 - **Backup-Check**: Stellt sicher, dass im Notfall eine Backup-Konfiguration verfügbar ist
 
-### Getestet am 26.06.2026
+### Getestet am 23.06.2026
 
 | Testfall | Ergebnis |
 | :--- | :--- |
