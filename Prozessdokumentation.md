@@ -517,12 +517,3 @@ git push origin main
 - ✅ Skript um zusätzliche Prüfungen erweitert
 - ✅ Alle Ergebnisse dokumentiert
 
-**Zeitaufwand:** ca. 120 Minuten
-
-**Schwierigkeitsgrad:** Mittel
-
----
-
-*Dokument erstellt am 26.06.2026*  
-*Projekt: sysadmin-ci-demo*  
-*Autor: Milad Farid*
